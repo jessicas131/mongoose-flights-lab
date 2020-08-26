@@ -1,6 +1,6 @@
 <section id="show-page">
   <div>Airline: </div>
-  <div><%= flight.ariline %></div>
+  <div><%= flight.airline %></div>
   <div>Airport: </div>
   <div><%= flight.airport %></div>
   <div>Flight Number: </div>
@@ -9,6 +9,27 @@
   <div><%= flight.departs %></div>
   
 </section>
+<a href="/flights/<%=flight._id%>/tickets/new">Tickets</a>
+<% if (ticket.length) { %>
+  <table>
+      <thead>
+          <tr>
+              <th>Seat Number</th>
+              <th>Price</th>
+          </tr>
+      </thead>
+      <tbody>
+          <% ticket.forEach(function(t) { %>
+          <tr>
+              <td><%= t.seat %></td>
+              <td>$<%= t.price %></td>
+          </tr>
+          <% }); %>
+      </tbody>
+  </table>
+  <% } else { %>
+  <h5>No Tickets Yet</h5>
+  <% } %>
 
 <br/>
 <% if (flight.destinations.length) { %>
@@ -26,6 +47,11 @@
             <td><%= d.createdAt.toLocaleDateString() %></td>
             <td><%= d.airport %></td>
             <td><%= d.arrival %></td>
+            <td>
+              <form method="POST" action="/destinations/<%=d._id%>/<%=flight._id%>?_method=DELETE" class="delete-form">
+                <button type ="submit">X</button>
+              </form>
+            </td>
           </tr>
         <% }); %>
       </tbody>
@@ -38,7 +64,7 @@
   <br><br>
   <h2>Destinations</h2>
  <form id="add-destination-form" method="POST"
-   action="/flights/<%= flight._id %>/destinations">
+   action="/destinations/flights/<%= flight._id %>">
    <label>Arrival:</label>
    <input type="datetime-local" name="arrival">
    <label>:</label>
