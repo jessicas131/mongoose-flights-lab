@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-  <title>Add New Flight</title>
-</head>
-<body>
-  <a href="/flights">All Flights</a>
-  <h2>Create a New Flight</h2>
+<%- include('../partials/header') %>
+<div class="newForm">
+  <h2>Create a New Flight:</h2>
 <form action="/flights" method="POST">
   <label>Airline:
     <select name="airline">
@@ -33,7 +25,8 @@
   <label>Departs:
     <input type="datetime-local" name="departs">
   </label><br>
-  <input type= "submit" value="Add Flight">
+  <input class="addButton" type= "submit" value="Add Flight">
 </form>
-</body>
-</html>
+</div>
+
+<%- include('../partials/footer') %>

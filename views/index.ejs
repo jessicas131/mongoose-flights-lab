@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <a href="/flights/new">New Flight</a> <a href="/flights">All Current Flights</a>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<%- include('partials/header') %>
+  <div class="titlepage">
+    <h1 class="title"><%= title %></h1>
+    <p class="subtitle">Welcome to your flight booking system.</p>
+    <p class="subtitle">Click a link above to navigate to your desired page.</p>
+  </div>
+
+
+    <%- include('partials/footer') %>
