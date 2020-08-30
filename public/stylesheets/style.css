@@ -10,8 +10,7 @@ body {
   grid-template-rows: 80px 1fr;
   grid-template-areas: 
     "nav"
-    "main"
-  
+    "main" ;
 }
 
 a {

@@ -20,15 +20,6 @@ const Flight = require('../models/flight');
     });
   }
 
-// function deleteDest(req, res) {
-//   Flight.findOne({'destinations._id': req.params.id}, functions(err, destination) {
-//     const flightSubdoc = destination.flight.id(req.params.id);
-//     flightSubdoc.remove();
-//     destination.save(function(err) {
-//       res.redirect(`/flights/${flight.id}`)
-//     })
-//   })
-// }
   function deleteDest(req,res) {
     Flight.findById(req.params.flight, function(err, flight) {
       const index = flight.destinations.findIndex(dest => dest._id == req.params.dest)
